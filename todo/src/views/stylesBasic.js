@@ -23,6 +23,9 @@ export const Li = styled.li`
 
 `;
 
-export const Button = styled.button`
+export const Button = styled.div`
   margin: 0 5px;
+  span {
+    color: white;
+  }
 `;
