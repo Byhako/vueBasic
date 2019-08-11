@@ -1,27 +1,33 @@
 <template lang="pug">
-  div
+  div(class="section")
 
-    h1 {{title}}
+    h1(class="title is-1") {{title}}
 
-    input(type='text' v-model="newFruit" v-on:keyup.enter='addFruit')
-    button(@click='addFruit') Agregar
+    Row
+      input(class="input" type="text" placeholder="Nueva fruta" v-model="newFruit" v-on:keyup.enter='addFruit')
+      button(class="button is-info" @click='addFruit') Agregar
 
-    ul
-      li(v-for='fruit of fruits') {{fruit.amount}} - {{fruit.name}}
+    ul(class="menu-list")
+      Li(v-for='fruit of fruits')
+        Button(class="button is-success is-small") +
+        Button(class="button is-danger is-small") -
+        p {{fruit.amount}} - {{fruit.name}}
         span(v-if='fruit.amount === 0') - sin stock
 
 </template>
 
 
 <script>
-// @ is an alias to /src
-// import Login from '@/components/Login/Login.vue';
+import { Row, Li, Button } from './stylesBasic';
+
 
 export default {
   name: 'basic',
-  // components: {
-  //   Login,
-  // },
+  components: {
+    Row,
+    Li,
+    Button,
+  },
   data() {
     return {
       title: 'Mi hermoso título',
@@ -37,7 +43,7 @@ export default {
 
   methods: {
     addFruit() {
-      this.fruits.push({ name: this.newFruit, amount:0 });
+      this.fruits.push({ name: this.newFruit, amount: 0 });
       this.newFruit = '';
     },
   },
