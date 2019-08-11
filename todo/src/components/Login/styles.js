@@ -1,4 +1,4 @@
-import styled from 'vue-styled-components'
+import styled from 'vue-styled-components';
 
 export const Container = styled.div`
   background-color: gray;
@@ -8,4 +8,6 @@ export const Container = styled.div`
   flex: 1;
   justify-content: center;
   align-items: center;
-`
+`;
+
+export const Box = styled.div``;
